@@ -117,6 +117,9 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>Matterbot.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\DOTlaptop\CLionProjects\matterbot\Matterbot\MatterbotSample\sqlite_modern_cpp;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -160,6 +163,16 @@
   <ItemGroup>
     <ClCompile Include="ConsoleLogger.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MapStorage.cpp" />
+    <ClCompile Include="MD5.cpp" />
+    <ClCompile Include="MD5Utilties.cpp" />
+    <ClCompile Include="Rivestment.cpp" />
+    <ClCompile Include="Rivestment_helper.cpp" />
+    <ClCompile Include="sqlite_modern_cpp\sqlite3.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="SqlStorage.cpp" />
+    <ClCompile Include="TraversalCommands.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Matterbot\Matterbot.vcxproj">
@@ -169,7 +182,15 @@
   <ItemGroup>
     <ClInclude Include="EchoCommand.h" />
     <ClInclude Include="ConsoleLogger.h" />
+    <ClInclude Include="MapStorage.h" />
+    <ClInclude Include="MD5.h" />
+    <ClInclude Include="MD5Utilities.h" />
     <ClInclude Include="ReverseCommand.h" />
+    <ClInclude Include="Rivestment.h" />
+    <ClInclude Include="Rivestment_helper.h" />
+    <ClInclude Include="sqlite_modern_cpp\sqlite_modern_cpp.h" />
+    <ClInclude Include="SqlStorage.h" />
+    <ClInclude Include="TraversalCommands.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

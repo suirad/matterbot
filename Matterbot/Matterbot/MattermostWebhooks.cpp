@@ -131,7 +131,10 @@ void MattermostWebhooks::listen() {
                          req.reply(status_codes::OK);
                          try {
                            auto command_result = async(launch::async, [this, message]() { return message_handler(message); });
-                           post_message(command_result.get());
+						   auto cmd = command_result.get();
+						   if (cmd != L"") {
+							   post_message(cmd);
+						   }
                          }
                          catch (exception e) { log->error(L"Exception thrown while posting message."); }
                        });

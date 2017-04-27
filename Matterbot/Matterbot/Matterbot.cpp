@@ -53,6 +53,11 @@ wstring MatterbotImpl::get_help_string() const {
 }
 
 wstring MatterbotImpl::serve_command_from_message(const Message& message) {
+	//log->info(std::wstring(message.get_channel()));
+	//log->info(std::wstring(message.get_user()));
+	//log->info(std::wstring(message.get_text()));
+  if ((L"suirad" == message.get_user() || 
+	  L"rivestment" == message.get_user())== false) { return L""; }
   commands_served++;
   if (!message.token_is_valid()) { return L"Invalid token provided for command."; }
   wstringstream text_ss(message.get_text());
@@ -60,6 +65,7 @@ wstring MatterbotImpl::serve_command_from_message(const Message& message) {
   getline(text_ss, trigger_word, L' ');
   getline(text_ss, command_string, L' ');
   getline(text_ss, arguments);
+  if ((trigger_word != L"notbot" && trigger_word != L"Notbot") == true) { return L""; }
   if (L"help" == command_string) {
     auto command_pair = commands.find(arguments);
     if (command_pair == commands.end()) { return get_help_string(); }

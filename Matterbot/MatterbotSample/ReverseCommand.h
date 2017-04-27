@@ -4,7 +4,7 @@
 
 namespace lospi {
   struct ReverseCommand : ICommand {
-    explicit ReverseCommand(std::shared_ptr<Matterbot> bot) : bot{bot} { }
+	  explicit ReverseCommand(std::shared_ptr<Matterbot> bot) : bot{ bot } { }
     std::wstring get_name() override { return L"reverse"; }
 
     std::wstring get_help() override { return L"`reverse [MESSAGE]`: `reverse` will respond with the original message and its reverse."; }
